@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-bg {
+    background-color: #1f2937;
+}
+.hero-bg {
+    background-color: #111827;
+}
+.features-bg {
+    background-color: #f3f4f6;
+}
+.footer-bg {
+    background-color: #1f2937;
+}
+.header-text {
+    color: #ffffff;
+}
+.hero-text {
+    color: #ffffff;
+}
+.feature-title {
+    color: #374151;
+}
+.feature-text {
+    color: #4b5563;
+}
+.primary-btn {
+    background-color: #3b82f6;
+}
+.primary-btn:hover {
+    background-color: #2563eb;
+}
+.login-btn {
+    background-color: #4b5563;
+}
+.login-btn:hover {
+    background-color: #374151;
+}
+.link-hover:hover {
+    color: #d1d5db;
+}
