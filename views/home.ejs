@@ -33,7 +33,7 @@
             </button>
 
             <!-- Logo -->
-            <div class="text-xl font-semibold tracking-wide">SecurePass</div>
+            <div class="text-xl font-semibold tracking-wide"><img class=" inline-block w-14 h-14" src="/image/image-removebg-preview (1).png" alt="">SecurePass</div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden sm:flex space-x-10 text-lg">
@@ -58,7 +58,7 @@
         <!-- Mobile Menu -->
         <nav id="mobile-menu" class="sm:hidden bg-gray-800 text-white mt-4 py-4 hidden">
             <a href="/" class="block py-2 px-4 hover:bg-gray-700">Home</a>
-            <a href="#" class="block py-2 px-4 hover:bg-gray-700">Features</a>
+            <a href="#feature" class="block py-2 px-4 hover:bg-gray-700">Features</a>
             <a href="#" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
             <a href="#" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
         </nav>
@@ -106,29 +106,37 @@
 
 
     <!-- Features Section -->
-    <section id="feature" class="py-12 sm:py-20 bg-gray-100 relative">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-10 animate-fade-in-down">Why Choose SecurePass?</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-md transform transition-transform hover:scale-105">
+<section id="feature" class="py-12 sm:py-20 bg-gray-100 relative">
+    <div class="container mx-auto text-center px-4">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-10 animate-fade-in-down">Why Choose SecurePass?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
+            <!-- Feature 1 -->
+            <div class="relative bg-white p-8 rounded-lg shadow-lg transform transition-transform hover:scale-105 overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-teal-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div class="relative z-10">
                     <div class="text-4xl text-blue-500 mb-4">
                         <i class="fa-solid fa-lock"></i>
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-700 mb-4">Secure Storage</h3>
                     <p class="text-gray-600">Your credentials are stored with strong encryption to ensure your data stays safe.</p>
                 </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                    <div class="text-4xl text-blue-500 mb-4">
+            </div>
+            <!-- Feature 2 -->
+            <div class="relative bg-white p-8 rounded-lg shadow-lg transform transition-transform hover:scale-105 overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-teal-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="text-4xl text-green-500 mb-4">
                         <i class="fa-solid fa-key"></i>
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-700 mb-4">Easy Access</h3>
                     <p class="text-gray-600">Access your saved credentials anytime, anywhere with just a few clicks.</p>
                 </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-lg shadow-md transform transition-transform hover:scale-105">
-                    <div class="text-4xl text-blue-500 mb-4">
+            </div>
+            <!-- Feature 3 -->
+            <div class="relative bg-white p-8 rounded-lg shadow-lg transform transition-transform hover:scale-105 overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-teal-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div class="relative z-10">
+                    <div class="text-4xl text-red-500 mb-4">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <h3 class="text-2xl font-semibold text-gray-700 mb-4">User-Friendly Interface</h3>
@@ -136,14 +144,14 @@
                 </div>
             </div>
         </div>
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white to-transparent opacity-50 pointer-events-none"></div>
-    </section>
+    </div>
+</section>
 
 
     <!-- Testimonial Section -->
 <section class="py-16 bg-gray-100">
     <div class="container mx-auto px-6 text-center">
-        <h2 class="text-4xl font-extrabold text-gray-800 mb-12">What Our Users Say</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-10 animate-fade-in-down">What Our Users Say</h2>
         <div class="flex flex-wrap justify-center gap-8">
             <!-- Testimonial 1 -->
             <div class="bg-white p-6 rounded-xl shadow-lg transform transition-transform hover:scale-105 w-full max-w-sm">

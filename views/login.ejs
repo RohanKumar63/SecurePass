@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/javascript/login.js"></script>
     <style>
         /* Custom styles */
         .hero-bg {
@@ -22,6 +23,16 @@
 </head>
 <body class="bg-gray-100">
 
+    
+    <% if(error.length> 0) { %>
+        <div id="error-message"
+            class="absolute  left-1/2 -translate-x-1/2 p-3 rounded-md bg-red-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= error %>
+            </span>
+        </div>
+        <% } %>
+
 
      <!-- Header -->
      <header class="header-bg text-white p-4">
@@ -33,8 +44,8 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
 
-            <!-- Logo -->
-            <div class="text-lg font-semibold header-text"> <a href="/">SecurePass</a></div>
+                    <!-- Logo -->
+                    <div class="text-xl font-semibold tracking-wide"><img class=" inline-block w-14 h-14" src="/image/image-removebg-preview (1).png" alt="">SecurePass</div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden sm:flex space-x-8">
@@ -43,14 +54,15 @@
                 <a href="#" class="link-hover">Pricing</a>
                 <a href="#" class="link-hover">Contact</a>
             </nav>
-            
-            <!-- Mobile Menu -->
-            <nav id="mobile-menu" class="sm:hidden bg-gray-800 text-white mt-4 py-4 hidden">
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Home</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Features</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
-            </nav>
+    </div>
+    <!-- Mobile Menu -->
+       
+    <nav id="mobile-menu" class="sm:hidden  text-white mt-4 py-4 hidden">
+        <a href="/" class="block py-2 px-4 hover:bg-gray-700">Home</a>
+        <a href="#feature" class="block py-2 px-4 hover:bg-gray-700">Features</a>
+        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
+        <a href="#" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
+    </nav>
         </div>
     </header>
    

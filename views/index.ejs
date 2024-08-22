@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/stylesheet/style.css">
     <script src="/javascript/index.js"></script>
 
@@ -15,41 +16,44 @@
 
 <body class="bg-gray-50 font-sans">
 
-    <!-- Header -->
-    <header class="header-bg text-white p-4">
+    <header class="bg-gray-800 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-
             <!-- Mobile Menu Button -->
             <button onclick="toggleMenu()"
                 class="sm:hidden bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
-
             <!-- Logo -->
-            <div class="text-lg font-semibold header-text"> <a href="/">SecurePass</a></div>
+            <div class="text-xl font-semibold tracking-wide"><img class=" inline-block w-14 h-14" src="/image/image-removebg-preview (1).png" alt="">SecurePass</div>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden sm:flex space-x-8">
-                <a href="/" class="link-hover">Home</a>
-                <a href="#" class="link-hover">Features</a>
-                <a href="#" class="link-hover">Pricing</a>
-                <a href="#" class="link-hover">Contact</a>
+            <nav class="hidden sm:flex space-x-10 text-lg">
+                <a href="/" class="hover:text-gray-300 transition-colors">Home</a>
+                <a href="#feature" class="hover:text-gray-300 transition-colors">Features</a>
+                <a href="#" class="hover:text-gray-300 transition-colors">Pricing</a>
+                <a href="#" class="hover:text-gray-300 transition-colors">Contact</a>
             </nav>
-            <a href="/user/logout" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded">Log Out</a>
-            <!-- Mobile Menu -->
-            <nav id="mobile-menu" class="sm:hidden bg-gray-800 text-white mt-4 py-4 hidden">
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Home</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Features</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
-            </nav>
-        </div>
-    </header>
 
+            <!-- Logout Button -->
+            <a href="/user/logout" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg shadow-md transition-colors">
+                Log Out
+            </a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="sm:hidden bg-gray-800 text-white mt-4 py-4 hidden">
+            <a href="/" class="block py-2 px-4 hover:bg-gray-700">Home</a>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-700">Features</a>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-700">Pricing</a>
+            <a href="#" class="block py-2 px-4 hover:bg-gray-700">Contact</a>
+        </nav>
+    </header>
     <div class="bg-gray-200 font-sans min-h-screen flex flex-col items-center justify-center">
 
         <!-- Header -->
         <header class="mb-12 mt-20 text-center">
+            <h1 class="text-5xl font-bold text-blue-1000 mb-4"> Hi,<span><%= user.fullname %></span><img class=" ml-2 inline-block w-8 h-8" src="/image/wave.png" alt=""></h1>
+
             <h1 class="text-5xl font-bold text-blue-900">Manage Your Passwords Securely</h1>
             <p class="text-gray-600 mt-4 text-lg">Effortlessly save and manage all your credentials in one place.</p>
         </header>
@@ -60,25 +64,25 @@
             <form id="credential-form" class="space-y-6" method="post" action="/user/data">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label for="website" class="block text-s font-medium text-gray-600">Website Name</label>
+                        <label for="website" class="block text-s font-medium text-gray-600">Website Name/URL</label>
                         <input type="text" id="url" name="url"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-                            placeholder="e.g., example.com">
+                            placeholder="e.g., example.com" >
                     </div>
                     <div>
-                        <label for="username" class="block text-s font-medium text-gray-600">Username</label>
+                        <label for="username" class="block text-s font-medium text-gray-600">Username/E-mail</label>
                         <input type="text" id="username" name="username"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-                            placeholder="e.g., user123">
+                            placeholder="e.g., user123" required>
                     </div>
                     <div>
                         <label for="password" class="block text-s font-medium text-gray-600">Password</label>
                         <input type="password" id="password" name="password"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-                            placeholder="••••••••">
+                            placeholder="••••••••" required>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center ">
                     <button type="submit"
                         class="mt-4 primary-btn text-white px-6 py-2 rounded-lg font-semibold shadow-lg hover:bg-blue-700 focus:outline-none">Save
                         Credential</button>

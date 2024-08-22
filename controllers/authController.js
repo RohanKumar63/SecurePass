@@ -45,8 +45,8 @@ module.exports.loginUser = async (req, res) => {
         let user = await userModel.findOne({email:email});
 
         if(!user) {
-            req.flash('error', 'Check email or password');
-            return res.redirect('login');
+            req.flash("error", "Check Email or Passward");
+            return res.redirect('/user/login');
         }
        
        bcrypt.compare(password, user.password, (err ,result)=>{
@@ -58,7 +58,7 @@ module.exports.loginUser = async (req, res) => {
         }
         else{
             req.flash('error', 'Check email or password again');
-                return res.redirect('/'); 
+                return res.redirect('/user/login'); 
         }
 
        })

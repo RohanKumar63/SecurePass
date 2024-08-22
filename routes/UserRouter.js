@@ -8,7 +8,8 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 
 
 router.get("/login", (req,res)=>{
-    res.render('login');
+    let error = req.flash('error');
+    res.render('login',{error});
 })
 
 router.get('/signup', (req, res) => {
@@ -27,6 +28,7 @@ router.get("/delete/:id" , isLoggedIn , async (req, res) =>{
    
 
 } );
+
 
 
 router.get("/logout", logout);
