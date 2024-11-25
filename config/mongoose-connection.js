@@ -17,12 +17,10 @@
 
 //........................................updated code................................................
 
+require('dotenv').config();
 const mongoose = require('mongoose');
-const debug = require("debug")("development:mongoose");
-const config = require("config");
-
 // Fetch the MongoDB URI from the configuration
-const MONGODB_URI = config.get("MONGODB_URI");
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
   .connect(MONGODB_URI)
