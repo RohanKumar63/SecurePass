@@ -18,8 +18,9 @@ app.use(cookieParser());
 app.use(
     expressSession({
         resave: false,
-        saveUninitialized: false,
+        saveUninitialized: true,
         secret: process.env.JWT_KEY,
+        store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     })
 );
 app.use(flash());
