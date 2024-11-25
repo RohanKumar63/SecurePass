@@ -19,7 +19,6 @@
 
 require('dotenv').config();
 const mongoose = require('mongoose');
-// Fetch the MongoDB URI from the configuration
 const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
