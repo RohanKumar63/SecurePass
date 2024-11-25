@@ -1,3 +1,4 @@
 {
-    "MONGODB_URI": "mongodb://127.0.0.1:27017"
-}
+    "MONGODB_URI": "mongodb+srv://rohankumar941536:rkmongodocmate@cluster0.sv0hx.mongodb.net/DocMat?retryWrites=true&w=majority&appName=Cluster0"
+  }
+  
