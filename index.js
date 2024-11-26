@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
+const MongoStore = require('connect-mongo');
 
 const db = require("./config/mongoose-connection");
 require("dotenv").config();
@@ -16,11 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(
-    expressSession({
-        resave: false,
-        saveUninitialized: true,
-        secret: process.env.JWT_KEY,
-    })
+  expressSession({
+      resave: false,
+      saveUninitialized: true,
+      secret: process.env.JWT_KEY, // Ensure this key is secure
+      store: MongoStore.create({
+          mongoUrl: process.env.MONGODB_URI, // MongoDB connection string
+      }),
+      cookie: {
+          maxAge: 1000 * 60 * 60 * 24, // 1 day
+      },
+  })
 );
 app.use(flash());
 
