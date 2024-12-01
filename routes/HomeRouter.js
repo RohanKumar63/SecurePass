@@ -6,6 +6,7 @@ const userModel = require('../models/user-model');
 const SECRET_KEY = process.env.SECRET_KEY;
 const CryptoJS = require('crypto-js');
 
+require("dotenv").config();
 
 
 

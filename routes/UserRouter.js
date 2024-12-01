@@ -8,7 +8,7 @@ const isLoggedIn = require("../middlewares/isLoggedIn");
 const CryptoJS = require('crypto-js');
 const SECRET_KEY = process.env.SECRET_KEY;
 
-
+require("dotenv").config();
 
 router.get("/login", (req,res)=>{
     let error = req.flash('error');
