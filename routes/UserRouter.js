@@ -66,7 +66,7 @@ router.post("/data", isLoggedIn, async (req, res) => {
         const { url, username, password } = req.body;
 
         // Encrypt the password
-        const encryptedPassword = CryptoJS.AES.encrypt(password, SECRET_KEY).toString();
+        const encryptedPassword = CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString();
 
         // Save to the database
         let user = await userModel.findOne({ email: req.user.email }).populate("datas");
