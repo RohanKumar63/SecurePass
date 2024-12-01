@@ -5,6 +5,9 @@ const{registerUser , loginUser, logout} = require("../controllers/authController
 const userModel = require('../models/user-model');
 const dataModel = require('../models/data-model');
 const isLoggedIn = require("../middlewares/isLoggedIn");
+const CryptoJS = require('crypto-js');
+const SECRET_KEY = process.env.SECRET_KEY;
+
 
 
 router.get("/login", (req,res)=>{
@@ -39,24 +42,51 @@ router.post("/register", registerUser );
 router.post("/login", loginUser);
 
 
-router.post("/data", isLoggedIn,  async (req,res)=>{
+// router.post("/data", isLoggedIn,  async (req,res)=>{
 
-    let user = await userModel.findOne({ email: req.user.email }).populate("datas")
-    console.log('User:', req.user);
-    let {  url, username, password} = req.body;
+//     let user = await userModel.findOne({ email: req.user.email }).populate("datas")
+//     console.log('User:', req.user);
+//     let {  url, username, password} = req.body;
 
-    let data = await dataModel.create({
-        user: user._id,
-        url,
-      username,
-      password, 
+//     let data = await dataModel.create({
+//         user: user._id,
+//         url,
+//       username,
+//       password, 
 
-    })
-    user.datas.push(data._id);
-    await user.save();
-    res.redirect('/user');
+//     })
+//     user.datas.push(data._id);
+//     await user.save();
+//     res.redirect('/user');
 
+// });
+
+router.post("/data", isLoggedIn, async (req, res) => {
+    try {
+        const { url, username, password } = req.body;
+
+        // Encrypt the password
+        const encryptedPassword = CryptoJS.AES.encrypt(password, SECRET_KEY).toString();
+
+        // Save to the database
+        let user = await userModel.findOne({ email: req.user.email }).populate("datas");
+        const data = await dataModel.create({
+            user: user._id,
+            url,
+            username,
+            password: encryptedPassword, // Store encrypted password
+        });
+
+        user.datas.push(data._id);
+        await user.save();
+
+        res.redirect("/user");
+    } catch (error) {
+        console.error("Error saving data:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
+
 
 router.post("/update/:id", isLoggedIn , async (req, res) => {
     let data = await dataModel.findOneAndUpdate({ _id: req.params.id }, { url: req.body.url , username: req.body.username , password: req.body.password });
