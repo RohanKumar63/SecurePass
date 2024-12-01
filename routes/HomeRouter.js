@@ -42,10 +42,6 @@ router.get("/user", isLoggedIn, async (req, res) => {
                 password: decryptedPassword,
             };
         });
-
-        console.log(decryptedData); // Optionally log the decrypted data
-
-        // Render the 'index' template with the user and decrypted data
         res.render("index", { user, decryptedData });
 
     } catch (error) {
