@@ -8,7 +8,6 @@ const expressSession = require('express-session');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo');
 
-
 const db = require("./config/mongoose-connection");
 require("dotenv").config();
 
@@ -26,7 +25,7 @@ app.use(
           mongoUrl: process.env.MONGODB_URI, // MongoDB connection string
       }),
       cookie: {
-          maxAge: 1000 * 60 * 60 * 24, // 1 day
+        maxAge: 1000 * 60 * 60 * 2, // 2 hours
       },
   })
 );
