@@ -8,18 +8,12 @@ const CryptoJS = require('crypto-js');
 
 require("dotenv").config();
 
-
-
-
-
 // Define your routes
 router.get('/', (req, res) => {
         let error = req.flash("error");
     const token = req.cookies.token || req.headers['authorization'];
     res.render('home', {isAuthenticated: !!token, error});
 });
-
-
 
 
 // router.get("/user", isLoggedIn, async (req,res)=>{
@@ -50,11 +44,6 @@ router.get("/user", isLoggedIn, async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
-
-
-
-
-
 
 
 
