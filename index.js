@@ -11,6 +11,9 @@ const MongoStore = require('connect-mongo');
 const db = require("./config/mongoose-connection");
 require("dotenv").config();
 
+const morgen = require('morgan');
+app.use(morgen('dev'));
+
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

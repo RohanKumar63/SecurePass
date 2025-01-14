@@ -32,10 +32,7 @@ router.get("/delete/:id" , isLoggedIn , async (req, res) =>{
 
 } );
 
-
-
 router.get("/logout", logout);
-
 
 router.post("/register", registerUser );
 
@@ -60,6 +57,7 @@ router.post("/login", loginUser);
 //     res.redirect('/user');
 
 // });
+
 
 router.post("/data", isLoggedIn, async (req, res) => {
     try {
