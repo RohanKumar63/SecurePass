@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": "16.x"
+    "node": ">=18"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,7 @@
   "author": "Rohan",
   "license": "ISC",
   "dependencies": {
+    "18": "^0.0.0",
     "bcrypt": "^5.1.1",
     "config": "^3.3.12",
     "connect-flash": "^0.1.1",
