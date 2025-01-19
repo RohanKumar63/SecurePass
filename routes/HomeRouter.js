@@ -30,10 +30,7 @@ router.get("/user", isLoggedIn, async (req, res) => {
         // Decrypt passwords for each data object in 'datas'
         const decryptedData = user.datas.map(data => {
             const decryptedPassword = CryptoJS.AES.decrypt(data.password, process.env.SECRET_KEY ).toString(CryptoJS.enc.Utf8);
-
             return {
-                url: data.url,
-                username: data.username,
                 password: decryptedPassword,
             };
         });
