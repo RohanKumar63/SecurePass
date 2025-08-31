@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
     <link rel="stylesheet" href="/stylesheet/style.css">
+    <script src="/javascript/index.js"></script>
+    <script src="script.js"></script>
 
 </head>
 <body class="bg-gray-50 font-sans">
@@ -56,20 +58,28 @@
                         <label for="website" class="block text-s font-medium text-gray-600">Website Name</label>
                         <input type="text" id="url" name="url"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-                            placeholder="<%= data.url %>">
+                            value="<%= data.url %>">
                     </div>
                     <div>
                         <label for="username" class="block text-s font-medium text-gray-600">Username</label>
                         <input type="text" id="username" name="username"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-                            placeholder="<%= data.username %>">
+                            value="<%= data.username %>">
                     </div>
                     <div>
+  <label for="password" class="block text-s font-medium text-gray-600">Password</label>
+  <input type="text" id="password" name="password"
+    class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+    value="<%= data.password %>">
+</div>
+
+                    <!-- <div>
                         <label for="password" class="block text-s font-medium text-gray-600">Password</label>
                         <input type="password" id="password" name="password"
                             class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 shadow-sm"
                             placeholder="<%= data.password %>">
-                    </div>
+                            
+                    </div> -->
                 </div>
                 <div class="text-center">
                     <button type="submit"

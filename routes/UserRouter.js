@@ -20,10 +20,34 @@ router.get('/signup', (req, res) => {
     res.render('signup',{isAuthenticated: !!token });
 });
 
-router.get("/edit/:id", isLoggedIn , async (req, res) => {
-    let data = await dataModel.findOne({ _id: req.params.id }).populate("user")
-    res.render("EditPage", { data })
-}); 
+// router.get("/edit/:id", isLoggedIn , async (req, res) => {
+//     let data = await dataModel.findOne({ _id: req.params.id }).populate("user")
+//     res.render("EditPage", { data })
+// }); 
+
+router.get("/edit/:id", isLoggedIn, async (req, res) => {
+  try {
+    let data = await dataModel.findOne({ _id: req.params.id }).populate("user");
+
+    if (!data) return res.status(404).send("Data not found");
+
+    // 🔑 Decrypt password
+    let decryptedPassword = "";
+    try {
+      decryptedPassword = CryptoJS.AES.decrypt(data.password, SECRET_KEY).toString(CryptoJS.enc.Utf8);
+    } catch (err) {
+      console.error("Decryption failed:", err);
+    }
+
+    // Replace encrypted with decrypted for EJS
+    data.password = decryptedPassword;
+
+    res.render("EditPage", { data });
+  } catch (err) {
+    console.error("Error loading edit page:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 router.get("/delete/:id" , isLoggedIn , async (req, res) =>{
     let data = await dataModel.findOne({ _id: req.params.id })
@@ -86,10 +110,33 @@ router.post("/data", isLoggedIn, async (req, res) => {
 });
 
 
-router.post("/update/:id", isLoggedIn , async (req, res) => {
-    let data = await dataModel.findOneAndUpdate({ _id: req.params.id }, { url: req.body.url , username: req.body.username , password: req.body.password });
+// router.post("/update/:id", isLoggedIn , async (req, res) => {
+    
+//     let data = await dataModel.findOneAndUpdate({ _id: req.params.id }, { url: req.body.url , username: req.body.username , password: req.body.password });
+//     res.redirect("/user");
+// });
+
+
+// Update Data (Encrypt password)
+router.post("/update/:id", isLoggedIn, async (req, res) => {
+  try {
+    const { url, username, password } = req.body;
+
+    const encryptedPassword = CryptoJS.AES.encrypt(password, SECRET_KEY).toString();
+
+    await dataModel.findOneAndUpdate(
+      { _id: req.params.id },
+      { url, username, password: encryptedPassword },
+      { new: true }
+    );
+
     res.redirect("/user");
+  } catch (err) {
+    console.error("Error updating data:", err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
 
 router.post("/delete/:id", isLoggedIn , async (req, res) => {
 let data = await dataModel.findOneAndDelete({ _id: req.params.id }, { url: req.body.url , username: req.body.username , password: req.body.password });

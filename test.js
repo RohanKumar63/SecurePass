@@ -36,21 +36,27 @@ app.get('/', (req, res) => {
 //   }
 //   console.log(b);
  
-var a = [1 ,2 ,5,4];
-// var b = [...a]
+// var a = [1 ,2 ,5,4];
+// // var b = [...a]
 
-a.forEach(function(val){
-    console.log(val);
-})
+// a.forEach(function(val){
+//     console.log(val);
+// })
 
 // console.log(b);
 
-setTimeout(function(){
-    console.log("hello");
-}
-,2000);
+// setTimeout(function(){
+//     console.log("hello");
+// }
+// ,2000);
 
-
+function timer(){
+    var a = 10;
+    return setTimeout(function(){
+      console.log(a);
+    },2000);
+    }
+  var t = timer();
 
 
 
